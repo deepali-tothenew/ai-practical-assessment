@@ -51,8 +51,10 @@ Resolved     → Closed
 | `requirements-analysis.md` | Requirements and assumptions |
 | `data-model.md` | Entities, fields, relationships |
 | `ui-flow.md` | Screens and user flows |
-| `api-contract.md` | REST endpoints (to be written) |
-| `design-notes.md` | Architecture (to be written) |
+| `api-contract.md` | REST endpoint contracts |
+| `implementation-plan.md` | Phased delivery plan |
+| `design-notes.md` | Architecture and design decisions |
+| `test-strategy.md` | Test plan and cases |
 | `tool-specific/cursor-workflow/spec.md` | Implementation spec |
 | `tool-specific/cursor-workflow/tasks.md` | Task breakdown |
 | `acceptance-criteria.md` | Checklist for completion |

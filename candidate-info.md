@@ -1,13 +1,13 @@
 # Candidate Information
 
-Name: [Candidate Name]  
-Role: [Role]  
+Name: Deepali Bansal
+Role: Full Stack JS Developer
 Primary Technology Stack: React, Node.js, MySQL
 
 Primary AI Tool Used: Cursor  
-Project Option Selected: Support Ticket Management System
+Project Option Selected: Core
 
-Assessment Start Date: [YYYY-MM-DD]  
+Assessment Start Date: [2026-07-16]  
 Submission Date: [YYYY-MM-DD]
 
 ## Project Summary

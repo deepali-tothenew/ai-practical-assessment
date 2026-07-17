@@ -10,10 +10,10 @@
 - [x] Create `tool-specific/cursor-workflow/project-context.md`
 - [x] Create `tool-specific/cursor-workflow/spec.md`
 - [x] Sync acceptance criteria (root + cursor-workflow)
-- [ ] Write `api-contract.md`
-- [ ] Write `design-notes.md`
-- [ ] Write `implementation-plan.md`
-- [ ] Write `test-strategy.md`
+- [x] Write `api-contract.md`
+- [x] Write `design-notes.md`
+- [x] Write `implementation-plan.md`
+- [x] Write `test-strategy.md`
 - [ ] Write `tool-workflow.md`
 - [ ] Finalize `cursor-rules-or-instructions.md`
 

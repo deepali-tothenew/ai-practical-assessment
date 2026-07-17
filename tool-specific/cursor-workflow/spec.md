@@ -10,7 +10,7 @@ Build a small full-stack support ticket application demonstrating spec-driven, A
 [React SPA]  ←→  [Node.js + Express REST API]  ←→  [MySQL]
 ```
 
-- Monorepo or split `src/` layout (frontend + backend) — finalize in `design-notes.md`.
+- Monorepo `src/` layout (frontend + backend) — confirmed in `design-notes.md`.
 - Environment-based DB config via `.env.example` (no secrets committed).
 
 ## 3. Data Model
@@ -27,7 +27,7 @@ See `data-model.md`. Summary:
 
 ## 4. API Surface (High Level)
 
-Detailed contract in `api-contract.md` (to be authored next).
+Detailed contract in `api-contract.md`.
 
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
