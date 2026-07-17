@@ -19,11 +19,11 @@
 
 ## Phase 1 — Project Scaffolding
 
-- [ ] Initialize Node.js backend project structure
-- [ ] Initialize React frontend project structure
-- [ ] Add `.env.example` for MySQL connection
-- [ ] Configure Jest for integration tests
-- [ ] Add root `README.md` skeleton
+- [x] Initialize Node.js backend project structure
+- [x] Initialize React frontend project structure
+- [x] Add `.env.example` for MySQL connection
+- [x] Configure Jest for integration tests
+- [x] Add root `README.md` skeleton
 
 ## Phase 2 — Database
 

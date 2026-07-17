@@ -1,0 +1,15 @@
+{
+  "name": "ai-practical-assessment",
+  "private": true,
+  "description": "Support Ticket Management System — AI Capability Exercise",
+  "scripts": {
+    "test": "jest",
+    "test:integration": "jest --testPathPattern=tests/integration"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

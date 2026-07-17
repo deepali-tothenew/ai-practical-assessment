@@ -1,0 +1,73 @@
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #555;
+}
+
+.health-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.health-card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+}
+
+.health-status {
+  margin: 0;
+  font-weight: 600;
+}
+
+.health-status--ok {
+  color: #0d7a3e;
+}
+
+.health-status--error {
+  color: #b42318;
+}
+
+.health-meta {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.health-meta code {
+  font-size: 0.8125rem;
+  background: #f0f0f0;
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #ddd;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
