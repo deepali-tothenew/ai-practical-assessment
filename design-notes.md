@@ -77,7 +77,7 @@ ai-practical-assessment/
 
 These are **default development ports** and can be overridden via environment variables (e.g. `PORT` for the API; frontend dev server port via its own config or env).
 
-The frontend reads the backend API base URL from the `REACT_APP_API_URL` environment variable. This value is configured in the frontend `.env` file and can be changed for different environments without modifying application code.
+The frontend reads the backend API base URL from the `VITE_API_URL` environment variable. This value is configured in the frontend `.env` file and can be changed for different environments without modifying application code.
 
 ### Related documents
 
