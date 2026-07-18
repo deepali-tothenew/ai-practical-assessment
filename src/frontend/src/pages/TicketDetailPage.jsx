@@ -63,7 +63,7 @@ export default function TicketDetailPage() {
     if (Object.keys(clientErrors).length > 0) {
       setCommentFieldErrors(clientErrors);
       setCommentFormError(null);
-      return;
+      return false;
     }
 
     setSubmittingComment(true);
@@ -77,12 +77,14 @@ export default function TicketDetailPage() {
       });
 
       setComments((current) => sortCommentsByCreatedAt([...current, comment]));
+      return true;
     } catch (err) {
       if (err instanceof ApiError && err.details?.length) {
         setCommentFieldErrors(mapApiFieldErrors(err.details));
       }
 
       setCommentFormError(err.message || 'Failed to add comment');
+      return false;
     } finally {
       setSubmittingComment(false);
     }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { listTickets } from '../api/tickets';
 import EmptyState from '../components/EmptyState';
@@ -12,14 +12,23 @@ import useDebounce from '../hooks/useDebounce';
 export default function TicketListPage() {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(null);
   const [keyword, setKeyword] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
+  const hasLoadedRef = useRef(false);
 
   const debouncedKeyword = useDebounce(keyword, 300);
 
   const loadTickets = useCallback(async () => {
-    setLoading(true);
+    const isInitialLoad = !hasLoadedRef.current;
+
+    if (isInitialLoad) {
+      setLoading(true);
+    } else {
+      setRefreshing(true);
+    }
+
     setError(null);
 
     try {
@@ -38,9 +47,14 @@ export default function TicketListPage() {
       setTickets(data.tickets);
     } catch (err) {
       setError(err.message || 'Failed to load tickets');
-      setTickets([]);
+
+      if (isInitialLoad) {
+        setTickets([]);
+      }
     } finally {
+      hasLoadedRef.current = true;
       setLoading(false);
+      setRefreshing(false);
     }
   }, [debouncedKeyword, statusFilter]);
 
@@ -67,8 +81,13 @@ export default function TicketListPage() {
       </header>
 
       <section className="list-toolbar" aria-label="Search and filter tickets">
-        <TicketSearchBar value={keyword} onChange={setKeyword} disabled={loading && tickets.length === 0} />
-        <TicketStatusFilter value={statusFilter} onChange={setStatusFilter} disabled={loading && tickets.length === 0} />
+        <TicketSearchBar value={keyword} onChange={setKeyword} />
+        <TicketStatusFilter value={statusFilter} onChange={setStatusFilter} />
+        {refreshing && (
+          <p className="list-toolbar__status" aria-live="polite">
+            <LoadingSpinner /> Updating results…
+          </p>
+        )}
       </section>
 
       {error && <ErrorBanner message={error} onRetry={loadTickets} />}
@@ -79,7 +98,11 @@ export default function TicketListPage() {
         </p>
       )}
 
-      {!loading && !error && tickets.length > 0 && <TicketList tickets={tickets} />}
+      {!loading && !error && tickets.length > 0 && (
+        <div className={`list-content${refreshing ? ' list-content--refreshing' : ''}`}>
+          <TicketList tickets={tickets} />
+        </div>
+      )}
 
       {showEmptyState && <EmptyState message={emptyMessage} />}
     </div>

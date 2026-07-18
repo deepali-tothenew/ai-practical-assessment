@@ -20,9 +20,13 @@ export default function CommentForm({
     setValues((current) => ({ ...current, [field]: value }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    onSubmit(values);
+    const success = await onSubmit(values);
+
+    if (success) {
+      setValues(emptyValues);
+    }
   }
 
   return (
