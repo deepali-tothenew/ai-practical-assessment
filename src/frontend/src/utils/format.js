@@ -9,3 +9,9 @@ export function formatDate(isoString) {
 export function statusClass(status) {
   return status.toLowerCase().replace(/\s+/g, '-');
 }
+
+export function sortCommentsByCreatedAt(comments) {
+  return [...comments].sort(
+    (left, right) => new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime(),
+  );
+}

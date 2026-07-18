@@ -1,18 +1,29 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { ApiError } from '../api/client';
+import { createComment } from '../api/comments';
 import { getTicket } from '../api/tickets';
+import { listUsers } from '../api/users';
+import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 import ErrorBanner from '../components/ErrorBanner';
 import LoadingSpinner from '../components/LoadingSpinner';
+import StatusAction from '../components/StatusAction';
 import TicketDetailHeader from '../components/TicketDetailHeader';
+import { sortCommentsByCreatedAt } from '../utils/format';
+import { mapApiFieldErrors, validateCreateComment } from '../utils/validation';
 
 export default function TicketDetailPage() {
   const { id } = useParams();
   const [ticket, setTicket] = useState(null);
   const [comments, setComments] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const [submittingComment, setSubmittingComment] = useState(false);
+  const [commentFieldErrors, setCommentFieldErrors] = useState({});
+  const [commentFormError, setCommentFormError] = useState(null);
 
   const loadTicket = useCallback(async () => {
     setLoading(true);
@@ -20,12 +31,18 @@ export default function TicketDetailPage() {
     setNotFound(false);
 
     try {
-      const data = await getTicket(id);
-      setTicket(data.ticket);
-      setComments(data.comments);
+      const [ticketData, usersData] = await Promise.all([
+        getTicket(id),
+        listUsers(),
+      ]);
+
+      setTicket(ticketData.ticket);
+      setComments(sortCommentsByCreatedAt(ticketData.comments));
+      setUsers(usersData.users);
     } catch (err) {
       setTicket(null);
       setComments([]);
+      setUsers([]);
 
       if (err.status === 404) {
         setNotFound(true);
@@ -40,6 +57,36 @@ export default function TicketDetailPage() {
   useEffect(() => {
     loadTicket();
   }, [loadTicket]);
+
+  async function handleAddComment(values) {
+    const clientErrors = validateCreateComment(values);
+    if (Object.keys(clientErrors).length > 0) {
+      setCommentFieldErrors(clientErrors);
+      setCommentFormError(null);
+      return;
+    }
+
+    setSubmittingComment(true);
+    setCommentFieldErrors({});
+    setCommentFormError(null);
+
+    try {
+      const { comment } = await createComment(ticket.id, {
+        message: values.message.trim(),
+        createdBy: Number(values.createdBy),
+      });
+
+      setComments((current) => sortCommentsByCreatedAt([...current, comment]));
+    } catch (err) {
+      if (err instanceof ApiError && err.details?.length) {
+        setCommentFieldErrors(mapApiFieldErrors(err.details));
+      }
+
+      setCommentFormError(err.message || 'Failed to add comment');
+    } finally {
+      setSubmittingComment(false);
+    }
+  }
 
   if (loading) {
     return (
@@ -103,9 +150,22 @@ export default function TicketDetailPage() {
 
       <TicketDetailHeader ticket={ticket} />
 
+      <StatusAction
+        ticketId={ticket.id}
+        currentStatus={ticket.status}
+        onStatusUpdated={(updatedTicket) => setTicket(updatedTicket)}
+      />
+
       <section className="detail-section">
         <h2 className="detail-section__title">Comments</h2>
         <CommentList comments={comments} />
+        <CommentForm
+          users={users}
+          fieldErrors={commentFieldErrors}
+          formError={commentFormError}
+          submitting={submittingComment}
+          onSubmit={handleAddComment}
+        />
       </section>
     </div>
   );

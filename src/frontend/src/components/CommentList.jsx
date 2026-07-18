@@ -1,14 +1,16 @@
 import EmptyState from './EmptyState';
-import { formatDate } from '../utils/format';
+import { formatDate, sortCommentsByCreatedAt } from '../utils/format';
 
 export default function CommentList({ comments }) {
-  if (comments.length === 0) {
+  const sortedComments = sortCommentsByCreatedAt(comments);
+
+  if (sortedComments.length === 0) {
     return <EmptyState message="No comments yet" />;
   }
 
   return (
     <ul className="comment-list">
-      {comments.map((comment) => (
+      {sortedComments.map((comment) => (
         <li key={comment.id} className="comment-card">
           <p className="comment-card__message">{comment.message}</p>
           <p className="comment-card__meta">

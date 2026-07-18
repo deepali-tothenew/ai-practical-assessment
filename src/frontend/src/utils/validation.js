@@ -51,3 +51,18 @@ export function validateUpdateTicket(values) {
 
   return errors;
 }
+
+
+export function validateCreateComment(values) {
+  const errors = {};
+
+  if (!values.message?.trim()) {
+    errors.message = 'Message is required and must be non-empty';
+  }
+
+  if (!values.createdBy) {
+    errors.createdBy = 'Created By is required';
+  }
+
+  return errors;
+}
