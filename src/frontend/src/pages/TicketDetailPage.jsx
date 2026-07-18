@@ -91,9 +91,14 @@ export default function TicketDetailPage() {
           <h1>Ticket #{ticket.id}</h1>
           <p className="page-header__subtitle">Ticket details and comments</p>
         </div>
-        <Link to="/" className="button button--secondary">
-          Back to list
-        </Link>
+        <div className="page-header__actions">
+          <Link to={`/tickets/${ticket.id}/edit`} className="button button--primary">
+            Edit Ticket
+          </Link>
+          <Link to="/" className="button button--secondary">
+            Back to list
+          </Link>
+        </div>
       </header>
 
       <TicketDetailHeader ticket={ticket} />

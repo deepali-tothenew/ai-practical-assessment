@@ -15,6 +15,7 @@ export default function TicketForm({
   mode = 'create',
   users,
   initialValues = emptyValues,
+  createdByName,
   fieldErrors = {},
   formError,
   submitting = false,
@@ -94,6 +95,13 @@ export default function TicketForm({
         />
       )}
 
+      {mode === 'edit' && (
+        <div className="form-field">
+          <span className="form-field__label">Created By</span>
+          <p className="form-field__readonly">{createdByName || '—'}</p>
+        </div>
+      )}
+
       <UserSelect
         id="assignedTo"
         label="Assigned To"
@@ -112,10 +120,10 @@ export default function TicketForm({
         <button type="submit" className="button button--primary" disabled={isDisabled}>
           {submitting ? (
             <>
-              <LoadingSpinner /> Creating…
+              <LoadingSpinner /> {mode === 'edit' ? 'Saving…' : 'Creating…'}
             </>
           ) : (
-            'Create Ticket'
+            mode === 'edit' ? 'Save Changes' : 'Create Ticket'
           )}
         </button>
       </div>

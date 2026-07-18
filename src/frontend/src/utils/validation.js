@@ -31,3 +31,23 @@ export function validateCreateTicket(values) {
 
   return errors;
 }
+
+export function validateUpdateTicket(values) {
+  const errors = {};
+
+  if (!values.title?.trim()) {
+    errors.title = 'Title is required and must be non-empty';
+  }
+
+  if (!values.description?.trim()) {
+    errors.description = 'Description is required and must be non-empty';
+  }
+
+  if (!values.priority) {
+    errors.priority = 'Priority is required';
+  } else if (!TICKET_PRIORITIES.includes(values.priority)) {
+    errors.priority = 'Priority must be one of: Low, Medium, High, Critical';
+  }
+
+  return errors;
+}
