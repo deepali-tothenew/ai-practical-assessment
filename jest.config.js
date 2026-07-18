@@ -4,4 +4,5 @@ module.exports = {
   testMatch: ['<rootDir>/tests/integration/**/*.test.js'],
   passWithNoTests: true,
   clearMocks: true,
+  maxWorkers: 1,
 };

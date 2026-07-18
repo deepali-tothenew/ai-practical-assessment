@@ -2,9 +2,10 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 const backendRoot = path.resolve(__dirname, '..');
-dotenv.config({ path: path.join(backendRoot, '.env') });
-
 const nodeEnv = process.env.NODE_ENV || 'development';
+const envFileName = nodeEnv === 'test' ? '.env.test' : '.env';
+
+dotenv.config({ path: path.join(backendRoot, envFileName) });
 
 const defaultDatabase = nodeEnv === 'test' ? 'support_tickets_test' : 'support_tickets';
 

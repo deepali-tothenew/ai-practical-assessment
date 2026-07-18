@@ -7,6 +7,10 @@ function notFound() {
   throw new AppError('Ticket not found', { statusCode: 404, code: 'NOT_FOUND' });
 }
 
+async function listCommentsByTicketId(ticketId) {
+  return commentRepository.findByTicketId(ticketId);
+}
+
 async function createComment(ticketId, body) {
   const { message, createdBy } = body;
 
@@ -26,5 +30,6 @@ async function createComment(ticketId, body) {
 }
 
 module.exports = {
+  listCommentsByTicketId,
   createComment,
 };

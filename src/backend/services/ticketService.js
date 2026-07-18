@@ -1,6 +1,6 @@
 const AppError = require('../utils/AppError');
 const ticketRepository = require('../repositories/ticketRepository');
-const commentRepository = require('../repositories/commentRepository');
+const commentService = require('./commentService');
 const validationService = require('./validationService');
 const statusService = require('./statusService');
 
@@ -39,7 +39,7 @@ async function getTicketById(id) {
     notFound('Ticket');
   }
 
-  const comments = await commentRepository.findByTicketId(id);
+  const comments = await commentService.listCommentsByTicketId(id);
   return { ticket, comments };
 }
 
