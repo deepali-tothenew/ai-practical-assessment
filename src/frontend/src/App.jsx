@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CreateTicketPage from './pages/CreateTicketPage';
+import TicketDetailPage from './pages/TicketDetailPage';
 import TicketListPage from './pages/TicketListPage';
-import CreateTicketPage, { TicketDetailPage } from './pages/PlaceholderPages';
 import './App.css';
 
 export default function App() {
