@@ -309,6 +309,88 @@
   margin-bottom: 0;
 }
 
+.ticket-detail-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.detail-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-card__title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.detail-card__description {
+  margin: 0 0 1.25rem;
+  white-space: pre-wrap;
+  color: #333;
+}
+
+.detail-card__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+}
+
+.detail-card__meta dt {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #667085;
+}
+
+.detail-card__meta dd {
+  margin: 0.125rem 0 0;
+  font-size: 0.9375rem;
+}
+
+.detail-section__title {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+}
+
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.comment-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.comment-card__message {
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap;
+}
+
+.comment-card__meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #667085;
+}
+
 .loading-spinner {
   display: inline-block;
   width: 1.25rem;
@@ -325,6 +407,12 @@
   }
 }
 
+.comment-card__meta {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #667085;
+}
+
 @media (max-width: 640px) {
   .page-header {
     flex-direction: column;
@@ -336,6 +424,10 @@
   }
 
   .ticket-card__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-card__meta {
     grid-template-columns: 1fr;
   }
 

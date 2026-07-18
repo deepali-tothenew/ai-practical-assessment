@@ -1,12 +1,5 @@
 import { Link } from 'react-router-dom';
-
-function formatDate(isoString) {
-  if (!isoString) {
-    return '—';
-  }
-
-  return new Date(isoString).toLocaleString();
-}
+import { formatDate, statusClass } from '../utils/format';
 
 export default function TicketList({ tickets }) {
   return (
@@ -43,8 +36,4 @@ export default function TicketList({ tickets }) {
       ))}
     </ul>
   );
-}
-
-function statusClass(status) {
-  return status.toLowerCase().replace(/\s+/g, '-');
 }
