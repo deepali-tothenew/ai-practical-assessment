@@ -1,7 +1,12 @@
 const express = require('express');
+const userRoutes = require('./userRoutes');
+const ticketRoutes = require('./ticketRoutes');
+const commentRoutes = require('./commentRoutes');
 
 const router = express.Router();
 
-// Business API routes (tickets, users, comments) will be mounted here.
+router.use('/users', userRoutes);
+router.use('/tickets', ticketRoutes);
+router.use('/tickets/:id/comments', commentRoutes);
 
 module.exports = router;
