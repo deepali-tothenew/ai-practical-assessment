@@ -1,9 +1,8 @@
 const { commentService } = require('../services');
-const { parseId } = require('../utils/parseParams');
 
 async function createComment(req, res) {
-  const ticketId = parseId(req.params.id, 'ticketId');
-  const comment = await commentService.createComment(ticketId, req.body);
+  const ticketId = req.validated.params.id;
+  const comment = await commentService.createComment(ticketId, req.validated.body);
   res.status(201).json({ comment });
 }
 
