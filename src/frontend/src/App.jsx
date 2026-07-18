@@ -1,14 +1,18 @@
-import HealthCheckPage from './pages/HealthCheckPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TicketListPage from './pages/TicketListPage';
+import CreateTicketPage, { TicketDetailPage } from './pages/PlaceholderPages';
 import './App.css';
 
 export default function App() {
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Support Ticket Management</h1>
-        <p>Frontend setup — verifying backend connectivity.</p>
-      </header>
-      <HealthCheckPage />
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<TicketListPage />} />
+          <Route path="/tickets/new" element={<CreateTicketPage />} />
+          <Route path="/tickets/:id" element={<TicketDetailPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }

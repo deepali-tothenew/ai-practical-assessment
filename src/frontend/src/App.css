@@ -1,59 +1,234 @@
 .app {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
 
-.app-header {
-  margin-bottom: 2rem;
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.app-header h1 {
-  margin: 0 0 0.5rem;
-  font-size: 1.5rem;
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
 }
 
-.app-header p {
+.page-header__subtitle {
+  margin: 0.25rem 0 0;
+  color: #555;
+}
+
+.list-toolbar {
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 220px);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar,
+.status-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.search-bar__label,
+.status-filter__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.search-bar__input,
+.status-filter__select {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+
+.search-bar__input:disabled,
+.status-filter__select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button--primary {
+  color: #fff;
+  background: #1f5eff;
+}
+
+.button--primary:hover {
+  background: #184bcc;
+}
+
+.button--secondary {
+  color: #1a1a1a;
+  background: #fff;
+  border-color: #ccc;
+}
+
+.button--secondary:hover {
+  background: #f5f5f5;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0;
   color: #555;
 }
 
-.health-card {
+.empty-state {
+  margin: 2rem 0 0;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
   background: #fff;
-  border: 1px solid #ddd;
+  border: 1px dashed #ccc;
   border-radius: 8px;
-  padding: 1.5rem;
 }
 
-.health-card h2 {
-  margin: 0 0 1rem;
-  font-size: 1.125rem;
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.875rem 1rem;
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
 }
 
-.health-status {
+.error-banner__message {
   margin: 0;
-  font-weight: 600;
-}
-
-.health-status--ok {
-  color: #0d7a3e;
-}
-
-.health-status--error {
   color: #b42318;
 }
 
-.health-meta {
-  margin: 0.75rem 0 0;
-  font-size: 0.875rem;
-  color: #666;
+.ticket-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.health-meta code {
-  font-size: 0.8125rem;
-  background: #f0f0f0;
-  padding: 0.125rem 0.375rem;
-  border-radius: 4px;
+.ticket-card {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ticket-card:hover {
+  border-color: #1f5eff;
+  box-shadow: 0 2px 8px rgba(31, 94, 255, 0.08);
+}
+
+.ticket-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.ticket-card__title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.ticket-card__status {
+  flex-shrink: 0;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #1f5eff;
+}
+
+.ticket-card__status--in-progress {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.ticket-card__status--resolved {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.ticket-card__status--closed {
+  background: #f2f4f7;
+  color: #475467;
+}
+
+.ticket-card__status--cancelled {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.ticket-card__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  margin: 0;
+}
+
+.ticket-card__meta div {
+  min-width: 0;
+}
+
+.ticket-card__meta dt {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #667085;
+}
+
+.ticket-card__meta dd {
+  margin: 0.125rem 0 0;
+  font-size: 0.875rem;
+}
+
+.placeholder-page {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.placeholder-page h1 {
+  margin: 0 0 0.5rem;
+}
+
+.placeholder-page p {
+  margin: 0 0 1.5rem;
+  color: #555;
 }
 
 .loading-spinner {
@@ -69,5 +244,25 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-card__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .error-banner {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
