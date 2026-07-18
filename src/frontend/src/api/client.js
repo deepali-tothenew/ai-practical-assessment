@@ -1,7 +1,19 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
+export class ApiError extends Error {
+  constructor(message, { status, code, details, data } = {}) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+    this.code = code;
+    this.details = details;
+    this.data = data;
+  }
+}
+
 /**
  * Base fetch wrapper for API requests.
+ * Throws ApiError with status, code, and optional details on failure.
  */
 export async function apiFetch(path, options = {}) {
   const url = `${API_BASE_URL}${path}`;
@@ -20,14 +32,36 @@ export async function apiFetch(path, options = {}) {
   }
 
   if (!response.ok) {
-    const message = data?.error?.message || `Request failed with status ${response.status}`;
-    const error = new Error(message);
-    error.status = response.status;
-    error.data = data;
-    throw error;
+    const apiError = data?.error;
+    throw new ApiError(apiError?.message || `Request failed with status ${response.status}`, {
+      status: response.status,
+      code: apiError?.code,
+      details: apiError?.details,
+      data,
+    });
   }
 
   return data;
 }
 
-export { API_BASE_URL };
+function buildQuery(params = {}) {
+  const searchParams = new URLSearchParams();
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (value === undefined || value === null) {
+      return;
+    }
+
+    const trimmed = typeof value === 'string' ? value.trim() : value;
+    if (trimmed === '') {
+      return;
+    }
+
+    searchParams.set(key, String(trimmed));
+  });
+
+  const query = searchParams.toString();
+  return query ? `?${query}` : '';
+}
+
+export { API_BASE_URL, buildQuery };
