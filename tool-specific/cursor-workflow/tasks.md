@@ -27,9 +27,10 @@
 
 ## Phase 2 — Database
 
-- [ ] Create MySQL schema/migration script (`database/`)
-- [ ] Create seed data script (users, tickets, comments)
+- [x] Create MySQL schema/migration script (`database/`)
+- [x] Create seed data script (users only)
 - [ ] Write `database/setup-notes.md`
+- [x] DB connection module in backend (`config/database.js`)
 
 ## Phase 3 — Backend API
 

@@ -6,6 +6,8 @@ dotenv.config({ path: path.join(backendRoot, '.env') });
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 
+const defaultDatabase = nodeEnv === 'test' ? 'support_tickets_test' : 'support_tickets';
+
 const config = {
   nodeEnv,
   isDevelopment: nodeEnv === 'development',
@@ -17,7 +19,7 @@ const config = {
     port: Number(process.env.DB_PORT) || 3306,
     user: process.env.DB_USER || '',
     password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'support_tickets',
+    database: process.env.DB_NAME || defaultDatabase,
   },
 };
 
