@@ -70,4 +70,4 @@ Resolved     → Closed
 
 ## Candidate Metadata
 
-Placeholders in `candidate-info.md` until submission.
+Submission dates recorded in `candidate-info.md`. Setup summary references `README.md` and `database/setup-notes.md`.

@@ -51,7 +51,7 @@ Tasks are grouped by phase. Each phase ends with a verifiable checkpoint mapped 
 | 0.3 | Write architecture and design notes | `design-notes.md` | Done |
 | 0.4 | Write test strategy | `test-strategy.md` | Done |
 | 0.5 | Write implementation plan | `implementation-plan.md` | Done |
-| 0.6 | Document AI workflow | `tool-workflow.md` | Pending |
+| 0.6 | Document AI workflow | `tool-workflow.md` | Done |
 
 **Checkpoint:** All planning docs reviewed. No application code until `api-contract.md` and `design-notes.md` are complete.
 
@@ -79,7 +79,7 @@ Tasks are grouped by phase. Each phase ends with a verifiable checkpoint mapped 
 | # | Task | Details |
 |---|------|---------|
 | 2.1 | Schema script | `users`, `tickets`, `comments` per `data-model.md`; `INT AUTO_INCREMENT` PKs; FKs; ENUMs for priority and status |
-| 2.2 | Seed data | 2–3 users; sample tickets across statuses/priorities; sample comments |
+| 2.2 | Seed data | 2–3 users only (no ticket or comment seed data) |
 | 2.3 | Setup notes | `database/setup-notes.md` — create DB, run schema, run seed |
 | 2.4 | DB connection module | Parameterized queries; connection pool in backend |
 
@@ -141,17 +141,18 @@ Build views per `ui-flow.md`:
 
 ### Phase 5 — Documentation, Review & Submission
 
-| # | Task | Output |
-|---|------|--------|
-| 5.1 | Complete README | Full local setup from clean clone |
-| 5.2 | Run tests | Record output in `test-results.md` |
-| 5.3 | Prompt history | Populate `ai-prompts/` (planning, design, implementation, testing, debugging, code-review, documentation) |
-| 5.4 | Debugging notes | `debugging-notes.md` — real issues encountered |
-| 5.5 | Code review | `code-review-notes.md`, `review-fixes.md` |
-| 5.6 | Reflection | `reflection.md`, `final-ai-usage-summary.md` |
-| 5.7 | PR description | `pr-description.md` |
-| 5.8 | Candidate info | Replace placeholders in `candidate-info.md` |
-| 5.9 | Acceptance review | Walk `acceptance-criteria.md` checklist; fix gaps |
+| # | Task | Output | Status |
+|---|------|--------|--------|
+| 5.1 | Complete README | Full local setup from clean clone | Done |
+| 5.2 | Run tests | Record output in `test-results.md` | Done |
+| 5.3 | Prompt history | Populate `ai-prompts/` (planning, design, implementation, testing, debugging, code-review, documentation) | Done |
+| 5.4 | Debugging notes | `debugging-notes.md` — real issues encountered | Done |
+| 5.5 | Code review | `code-review-notes.md` | Done |
+| 5.6 | Reflection | `reflection.md`, `final-ai-usage-summary.md` | Done |
+| 5.7 | PR description | `pr-description.md` | Done |
+| 5.8 | Candidate info | `candidate-info.md` metadata and setup summary | Done |
+| 5.9 | Acceptance review | Walk `acceptance-criteria.md` checklist; fix gaps | Done (Core items verified) |
+| 5.10 | Database setup notes | `database/setup-notes.md` | Done |
 
 **Checkpoint:** Repository is submission-ready; all mandatory artifacts present; app runs from README instructions.
 
@@ -192,13 +193,13 @@ Cursor is the primary AI tool. Usage follows spec-driven development — documen
 
 | Activity | AI role | Prompt capture |
 |----------|---------|----------------|
-| Scaffolding | Generate project structure; human reviews and trims | `ai-prompts/implementation.md` |
-| State machine | Generate transition logic; **must** be validated against rules manually and by tests | `ai-prompts/implementation.md` |
-| API endpoints | Generate handlers from `api-contract.md`; reject if contract diverges | `ai-prompts/implementation.md` |
-| React components | Generate from `ui-flow.md`; verify loading/empty/error states | `ai-prompts/implementation.md` |
-| Tests | Generate integration test skeletons; human adds edge cases | `ai-prompts/testing.md` |
-| Debugging | Investigate failures; document what was accepted vs rejected | `ai-prompts/debugging.md` |
-| Code review | AI-assisted review; human owns final decisions | `ai-prompts/code-review.md` |
+| Scaffolding | Generate project structure; human reviews and trims | `ai-prompts/phase-1-scaffolding.md` |
+| State machine | Generate transition logic; **must** be validated against rules manually and by tests | `ai-prompts/phase-3-backend.md` |
+| API endpoints | Generate handlers from `api-contract.md`; reject if contract diverges | `ai-prompts/phase-3-backend.md` |
+| React components | Generate from `ui-flow.md`; verify loading/empty/error states | `ai-prompts/phase-4-frontend.md` |
+| Tests | Generate integration test suites from `test-strategy.md` | `ai-prompts/phase-3-backend.md` |
+| Debugging | Investigate failures; document what was accepted vs rejected | `ai-prompts/` + `debugging-notes.md` |
+| Code review | AI-assisted review; human owns final decisions | `ai-prompts/` + `code-review-notes.md` |
 
 ### Context provided to AI
 

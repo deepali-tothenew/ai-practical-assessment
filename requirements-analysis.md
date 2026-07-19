@@ -100,7 +100,7 @@ All other transitions are invalid and must be rejected by the backend.
 | 9 | Acceptance criteria files | Root `acceptance-criteria.md` and `tool-specific/cursor-workflow/acceptance-criteria.md` maintained in sync; Cursor copy serves as persistent AI context |
 | 10 | Additional spec docs | `data-model.md` and `ui-flow.md` are required artifacts |
 | 11 | Testing | Jest; Core mandates integration tests for the state machine |
-| 12 | Candidate metadata | Placeholders in `candidate-info.md` until submission |
+| 12 | Candidate metadata | Recorded in `candidate-info.md` (assessment dates and setup summary) |
 | 13 | Git workflow | Feature-based commits with clear messages; no special branching strategy |
 | 14 | Scope | Core only for first delivery; Stretch deferred |
 

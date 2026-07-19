@@ -84,7 +84,7 @@ See `ui-flow.md`. Key points:
 ## 7. Database
 
 - MySQL with migration or schema script in `database/`
-- Seed data: users, sample tickets, sample comments
+- Seed data: users only (three seeded reference users)
 - `database/setup-notes.md` with local setup steps
 
 ## 8. Testing (Core)

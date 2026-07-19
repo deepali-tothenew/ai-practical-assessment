@@ -515,13 +515,13 @@ Results recorded in `test-results.md` after test runs.
 
 Quick reference to ensure implementation stays aligned:
 
-- [ ] React frontend, Node.js + Express backend, MySQL database
-- [ ] No authentication or user management
-- [ ] Status changes only via `PATCH /api/tickets/:id/status`
-- [ ] Backend state machine is source of truth
-- [ ] Search: title + description only, case-insensitive, server-side
-- [ ] Comments: `createdAt` ascending; excluded from search
-- [ ] Priority: Low, Medium, High, Critical
-- [ ] `assignedTo` optional; `createdBy` immutable after create
-- [ ] 404 for missing ticket on view, update, and status change
-- [ ] Parameterized SQL; no secrets in repository
+- [x] React frontend, Node.js + Express backend, MySQL database
+- [x] No authentication or user management
+- [x] Status changes only via `PATCH /api/tickets/:id/status`
+- [x] Backend state machine is source of truth
+- [x] Search: title + description only, case-insensitive, server-side
+- [x] Comments: `createdAt` ascending; excluded from search
+- [x] Priority: Low, Medium, High, Critical
+- [x] `assignedTo` optional; `createdBy` immutable after create
+- [x] 404 for missing ticket on view, update, and status change
+- [x] Parameterized SQL; no secrets in repository
