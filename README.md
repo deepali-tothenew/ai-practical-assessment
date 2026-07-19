@@ -239,6 +239,8 @@ ai-practical-assessment/
 | [`ui-flow.md`](ui-flow.md) | Screen flows and UI behavior |
 | [`test-strategy.md`](test-strategy.md) | Test cases and coverage matrix |
 | [`tool-workflow.md`](tool-workflow.md) | AI-assisted development workflow |
+| [`code-review-notes.md`](code-review-notes.md) | Review sessions and findings |
+| [`review-fixes.md`](review-fixes.md) | Review fixes and final verification |
 | [`final-ai-usage-summary.md`](final-ai-usage-summary.md) | AI usage summary across the full lifecycle |
-| [`ai-prompts/`](ai-prompts/) | Phase-organized AI prompt history |
+| [`ai-prompts/`](ai-prompts/) | Lifecycle-organized prompt history (7 files) |
 | [`tool-specific/cursor-workflow/`](tool-specific/cursor-workflow/) | Cursor context, spec, and tasks |

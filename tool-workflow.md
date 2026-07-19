@@ -199,7 +199,7 @@ React Router routes: `/`, `/tickets/new`, `/tickets/:id`, `/tickets/:id/edit`.
 | `debugging-notes.md`, `code-review-notes.md`, `reflection.md`, `pr-description.md` | Process and review documentation complete |
 | `final-ai-usage-summary.md` | AI usage summary across planning through submission |
 | Acceptance criteria (Core) | All items verified |
-| `ai-prompts/` | 51 prompts organized by development phase |
+| `ai-prompts/` | 56 prompts organized by lifecycle phase (`planning.md` through `documentation.md`) |
 
 All Phase 5 submission artifacts are complete.
 
@@ -339,4 +339,4 @@ The workflow’s strength was **constraint and sequencing**: narrow prompts, hum
 - `tool-specific/cursor-workflow/cursor-rules-or-instructions.md` — Non-negotiable rules for AI sessions
 - `tool-specific/cursor-workflow/tasks.md` — Executable task checklist
 - `test-results.md` — Automated test evidence
-- `ai-prompts/` — Detailed prompt history (phase-organized under `ai-prompts/`)
+- `ai-prompts/` — Prompt history by lifecycle phase (`planning.md`, `design.md`, `implementation.md`, `testing.md`, `debugging.md`, `code-review.md`, `documentation.md`)

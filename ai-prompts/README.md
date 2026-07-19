@@ -1,6 +1,6 @@
 # AI Prompt History
 
-Prompt history for the **Support Ticket Management System (Core)** assessment, captured from the actual Cursor Agent sessions used during development.
+Prompt history for the **Support Ticket Management System (Core)** assessment, captured from actual Cursor Agent sessions.
 
 **Primary tool:** Cursor (Agent mode)  
 **Approach:** Specification-driven development  
@@ -8,18 +8,21 @@ Prompt history for the **Support Ticket Management System (Core)** assessment, c
 
 ---
 
-## Organization
+## Repository structure
 
-Prompts are grouped by development phase, aligned with `implementation-plan.md`:
+Prompts are organized by lifecycle phase per the assessment brief:
 
-| File | Phase | Focus |
-|------|-------|-------|
-| [`phase-0-planning.md`](phase-0-planning.md) | Phase 0 | Assessment intake, implementation decisions, spec generation and refinement |
-| [`phase-1-scaffolding.md`](phase-1-scaffolding.md) | Phase 1 | Backend/frontend scaffold, env fix, Jest, cleanup |
-| [`phase-2-database.md`](phase-2-database.md) | Phase 2 | Schema, seed, connection pool |
-| [`phase-3-backend.md`](phase-3-backend.md) | Phase 3 | Layered API, reviews, integration tests |
-| [`phase-4-frontend.md`](phase-4-frontend.md) | Phase 4 | API client, views, manual testing fixes |
-| [`phase-5-documentation.md`](phase-5-documentation.md) | Phase 5 | Workflow docs, reviews, submission artifacts |
+| File | Focus | Prompts |
+|------|-------|---------|
+| [`planning.md`](planning.md) | Requirements, decisions, refinements, implementation plan | 4 |
+| [`design.md`](design.md) | Architecture, API contract, test strategy | 4 |
+| [`implementation.md`](implementation.md) | Scaffold, database, backend layers, frontend features | 18 |
+| [`testing.md`](testing.md) | Jest setup, integration tests, test environment | 5 |
+| [`debugging.md`](debugging.md) | Targeted fix prompts after review or manual testing | 4 |
+| [`code-review.md`](code-review.md) | Spec-compliance reviews | 8 |
+| [`documentation.md`](documentation.md) | Lifecycle docs and submission artifacts | 13 |
+
+**Total:** 56 prompt entries across 7 lifecycle files.
 
 ---
 
@@ -39,9 +42,19 @@ Each entry records:
 |---------|---------|
 | Scoped implementation | “Implement the repository layer only.” |
 | Spec-targeted generation | “Generate api-contract.md based on …” |
-| Targeted refinement | “Make ONLY the refinements listed below. Do not regenerate.” |
+| Targeted refinement | “Make ONLY the refinements listed below.” |
 | Correction-only review | “Identify only required corrections.” |
 | Fix-only follow-up | “Fix the environment configuration only.” |
-| UX fix without contract change | “Do not modify business logic, API contracts, or backend behavior.” |
+| UX fix without contract change | “Do not modify business logic or API contracts.” |
 
-See `tool-workflow.md` for the full workflow narrative.
+---
+
+## Related artifacts
+
+| Document | Purpose |
+|----------|---------|
+| [`tool-workflow.md`](../tool-workflow.md) | AI-assisted workflow narrative |
+| [`final-ai-usage-summary.md`](../final-ai-usage-summary.md) | AI usage summary by lifecycle phase |
+| [`review-fixes.md`](../review-fixes.md) | Review findings and fixes applied |
+| [`code-review-notes.md`](../code-review-notes.md) | Full review session detail (R1–R7) |
+| [`debugging-notes.md`](../debugging-notes.md) | Issue diagnosis and resolution |

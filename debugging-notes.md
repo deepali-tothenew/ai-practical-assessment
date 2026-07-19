@@ -380,4 +380,4 @@ Dev server alone (`npm run dev`) did not catch the duplicate symbol error.
 | `test-results.md` | Final test run after debugging test env |
 | `test-strategy.md` | Test cases that exposed coverage gaps |
 | `api-contract.md` | Contract used to validate fixes did not drift |
-| `ai-prompts/debugging.md` | Detailed prompt history — see `ai-prompts/phase-*-*.md` and `debugging-notes.md` |
+| `ai-prompts/debugging.md` | Debugging and fix prompts |

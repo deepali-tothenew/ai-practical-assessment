@@ -147,7 +147,7 @@ Build views per `ui-flow.md`:
 | 5.2 | Run tests | Record output in `test-results.md` | Done |
 | 5.3 | Prompt history | Populate `ai-prompts/` (planning, design, implementation, testing, debugging, code-review, documentation) | Done |
 | 5.4 | Debugging notes | `debugging-notes.md` — real issues encountered | Done |
-| 5.5 | Code review | `code-review-notes.md` | Done |
+| 5.5 | Code review | `code-review-notes.md`, `review-fixes.md` | Done |
 | 5.6 | Reflection | `reflection.md`, `final-ai-usage-summary.md` | Done |
 | 5.7 | PR description | `pr-description.md` | Done |
 | 5.8 | Candidate info | `candidate-info.md` metadata and setup summary | Done |
@@ -193,13 +193,15 @@ Cursor is the primary AI tool. Usage follows spec-driven development — documen
 
 | Activity | AI role | Prompt capture |
 |----------|---------|----------------|
-| Scaffolding | Generate project structure; human reviews and trims | `ai-prompts/phase-1-scaffolding.md` |
-| State machine | Generate transition logic; **must** be validated against rules manually and by tests | `ai-prompts/phase-3-backend.md` |
-| API endpoints | Generate handlers from `api-contract.md`; reject if contract diverges | `ai-prompts/phase-3-backend.md` |
-| React components | Generate from `ui-flow.md`; verify loading/empty/error states | `ai-prompts/phase-4-frontend.md` |
-| Tests | Generate integration test suites from `test-strategy.md` | `ai-prompts/phase-3-backend.md` |
-| Debugging | Investigate failures; document what was accepted vs rejected | `ai-prompts/` + `debugging-notes.md` |
-| Code review | AI-assisted review; human owns final decisions | `ai-prompts/` + `code-review-notes.md` |
+| Scaffolding | Generate project structure; human reviews and trims | `ai-prompts/implementation.md` |
+| State machine | Generate transition logic; **must** be validated against rules manually and by tests | `ai-prompts/implementation.md` |
+| API endpoints | Generate handlers from `api-contract.md`; reject if contract diverges | `ai-prompts/implementation.md` |
+| React components | Generate from `ui-flow.md`; verify loading/empty/error states | `ai-prompts/implementation.md` |
+| Tests | Generate integration test suites from `test-strategy.md` | `ai-prompts/testing.md` |
+| Debugging | Investigate failures; document what was accepted vs rejected | `ai-prompts/debugging.md` |
+| Code review | AI-assisted review; human owns final decisions | `ai-prompts/code-review.md` |
+| Planning & design | Requirements, API contract, architecture | `ai-prompts/planning.md`, `ai-prompts/design.md` |
+| Documentation | Lifecycle and submission artifacts | `ai-prompts/documentation.md` |
 
 ### Context provided to AI
 

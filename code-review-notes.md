@@ -2,7 +2,7 @@
 
 Summary of AI-assisted and manual code reviews conducted during the Support Ticket Management System assessment. Documents issues found, fixes applied, and the final review outcome.
 
-**Related documents:** `debugging-notes.md`, `tool-workflow.md`, `test-results.md`, `acceptance-criteria.md`
+**Related documents:** `review-fixes.md`, `debugging-notes.md`, `tool-workflow.md`, `test-results.md`, `acceptance-criteria.md`
 
 **Review standard:** Approved project documentation (`api-contract.md`, `design-notes.md`, `ui-flow.md`, `test-strategy.md`)
 
@@ -371,8 +371,9 @@ None remaining for Core scope.
 
 | File | Purpose |
 |------|---------|
+| `review-fixes.md` | Review findings, fixes applied, and final verification |
 | `debugging-notes.md` | Detailed diagnosis and resolution per issue |
 | `tool-workflow.md` | AI-assisted development process |
 | `test-results.md` | Final automated test evidence |
 | `acceptance-criteria.md` | Definition of done checklist |
-| `ai-prompts/code-review.md` | Prompt-level review history — see `ai-prompts/phase-*-*.md` and `code-review-notes.md` |
+| `ai-prompts/code-review.md` | Prompt-level review history |

@@ -6,7 +6,7 @@ Summary of how **Cursor (Agent mode)** was used to deliver the **Support Ticket 
 **Primary AI tool:** Cursor  
 **Approach:** Specification-driven development — documents and rules before code  
 **Assessment period:** 2026-07-16 → 2026-07-19  
-**Prompt history:** [`ai-prompts/`](ai-prompts/) (51 prompts across 6 phase files)
+**Prompt history:** [`ai-prompts/`](ai-prompts/) (56 prompts across 7 lifecycle files)
 
 ---
 
@@ -77,7 +77,7 @@ Full prompt text and outcomes are recorded in [`ai-prompts/`](ai-prompts/).
 
 Phase 0 gate passed: all planning documents internally consistent. **No application code until `api-contract.md` and `design-notes.md` were complete.**
 
-**Prompts:** 8 — see [`ai-prompts/phase-0-planning.md`](ai-prompts/phase-0-planning.md)
+**Prompts:** 4 planning + 4 design — see [`ai-prompts/planning.md`](ai-prompts/planning.md) and [`ai-prompts/design.md`](ai-prompts/design.md)
 
 ---
 
@@ -100,7 +100,7 @@ Phase 0 gate passed: all planning documents internally consistent. **No applicat
 - **Accepted** scaffold review findings; drove Jest and README completion
 - **Accepted** non-functional cleanup (redundant files, unused setup code)
 
-**Prompts:** 6 — see [`ai-prompts/phase-1-scaffolding.md`](ai-prompts/phase-1-scaffolding.md)
+**Prompts:** 4 — see [`ai-prompts/implementation.md`](ai-prompts/implementation.md) (IMPL-01–04)
 
 ---
 
@@ -116,7 +116,7 @@ Phase 0 gate passed: all planning documents internally consistent. **No applicat
 
 **Human role:** Verified schema matches `data-model.md` enums, immutability rules, and relationships.
 
-**Prompts:** 3 — see [`ai-prompts/phase-2-database.md`](ai-prompts/phase-2-database.md)
+**Prompts:** 3 — see [`ai-prompts/implementation.md`](ai-prompts/implementation.md) (IMPL-05–07)
 
 ---
 
@@ -139,7 +139,7 @@ Phase 0 gate passed: all planning documents internally consistent. **No applicat
 | Scope creep in reviews | Suggested optional improvements | **Rejected** — “required corrections only” |
 | Auth / Stretch features | Occasionally implied in generic patterns | **Rejected** throughout |
 
-**Prompts:** 11 — see [`ai-prompts/phase-3-backend.md`](ai-prompts/phase-3-backend.md)
+**Prompts:** 4 implementation + 5 testing + 2 review — see [`ai-prompts/implementation.md`](ai-prompts/implementation.md), [`ai-prompts/testing.md`](ai-prompts/testing.md), [`ai-prompts/code-review.md`](ai-prompts/code-review.md)
 
 ---
 
@@ -166,7 +166,7 @@ Phase 0 gate passed: all planning documents internally consistent. **No applicat
 
 AI did not modify business logic, API contracts, or backend behavior for these fixes.
 
-**Prompts:** 11 — see [`ai-prompts/phase-4-frontend.md`](ai-prompts/phase-4-frontend.md)
+**Prompts:** 7 implementation + 3 review/debug — see [`ai-prompts/implementation.md`](ai-prompts/implementation.md), [`ai-prompts/code-review.md`](ai-prompts/code-review.md), [`ai-prompts/debugging.md`](ai-prompts/debugging.md)
 
 ---
 
@@ -266,12 +266,12 @@ Implement → Review against approved docs → Identify only required correction
 | `pr-description.md` | PR-style implementation summary |
 | `database/setup-notes.md` | Database setup and verification guide |
 | `README.md` | Full setup, env, run, and test instructions |
-| `ai-prompts/` | 51 prompts organized by development phase |
+| `ai-prompts/` | 56 prompts organized by lifecycle phase |
 | `final-ai-usage-summary.md` | This document |
 
 **Human role:** Directed document accuracy reviews; rejected unsupported claims; synchronized progress checklists against actual implementation.
 
-**Prompts:** 11 — see [`ai-prompts/phase-5-documentation.md`](ai-prompts/phase-5-documentation.md)
+**Prompts:** 13 — see [`ai-prompts/documentation.md`](ai-prompts/documentation.md)
 
 ---
 

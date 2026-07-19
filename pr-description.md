@@ -98,13 +98,14 @@ Test environment: `support_tickets_test` via `src/backend/.env.test` and `NODE_E
 |----------|-------------|
 | `tool-workflow.md` | AI-assisted development workflow |
 | `debugging-notes.md` | Significant issues and resolutions |
-| `code-review-notes.md` | Review sessions, findings, fixes, final outcome |
+| `review-fixes.md` | Review findings, fixes applied, and final verification |
+| `code-review-notes.md` | Full review session narrative (R1–R7) |
 | `reflection.md` | Implementation decisions and lessons learned |
 | `test-results.md` | Automated test run evidence |
 | `candidate-info.md` | Candidate metadata and setup summary |
 | `README.md` | Setup, database, env, run, and test instructions |
 | `database/setup-notes.md` | Detailed database setup and verification |
-| `ai-prompts/` | Phase-organized prompt history from actual Cursor sessions |
+| `ai-prompts/` | Lifecycle-organized prompt history (`planning.md` through `documentation.md`) |
 | `final-ai-usage-summary.md` | AI usage summary across the full lifecycle |
 
 ---
